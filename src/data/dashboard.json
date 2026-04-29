@@ -1,0 +1,50 @@
+{
+  "stats": [
+    {
+      "id": "total-patients",
+      "label": "Total Patients",
+      "value": 1284,
+      "change": 12,
+      "changeLabel": "vs last month",
+      "icon": "Users",
+      "color": "primary"
+    },
+    {
+      "id": "appointments-today",
+      "label": "Appointments Today",
+      "value": 24,
+      "change": -3,
+      "changeLabel": "vs yesterday",
+      "icon": "CalendarCheck",
+      "color": "accent"
+    },
+    {
+      "id": "bed-occupancy",
+      "label": "Bed Occupancy",
+      "value": "87%",
+      "change": 5,
+      "changeLabel": "vs last week",
+      "icon": "BedDouble",
+      "color": "warning"
+    },
+    {
+      "id": "critical-cases",
+      "label": "Critical Cases",
+      "value": 3,
+      "change": -2,
+      "changeLabel": "vs yesterday",
+      "icon": "AlertCircle",
+      "color": "error"
+    }
+  ],
+  "todayAppointments": [
+    { "id": "A001", "patient": "James Anderson",  "time": "09:00 AM", "doctor": "Dr. Sarah Mitchell", "department": "Cardiology",      "status": "Completed" },
+    { "id": "A002", "patient": "Priya Sharma",     "time": "09:30 AM", "doctor": "Dr. Kevin Patel",    "department": "Neurology",       "status": "Completed" },
+    { "id": "A003", "patient": "Emily Davis",      "time": "10:00 AM", "doctor": "Dr. Mark Thompson",  "department": "Orthopedics",     "status": "In Progress" },
+    { "id": "A004", "patient": "Aisha Patel",      "time": "10:30 AM", "doctor": "Dr. James Wong",     "department": "Endocrinology",   "status": "Scheduled" },
+    { "id": "A005", "patient": "David Kim",        "time": "11:00 AM", "doctor": "Dr. Rachel Green",   "department": "Gastroenterology","status": "Scheduled" },
+    { "id": "A006", "patient": "Nadia Hassan",     "time": "11:30 AM", "doctor": "Dr. Tom Harris",     "department": "Dermatology",     "status": "Scheduled" },
+    { "id": "A007", "patient": "Thomas Wright",    "time": "02:00 PM", "doctor": "Dr. Sarah Mitchell", "department": "Cardiology",      "status": "Scheduled" },
+    { "id": "A008", "patient": "Hannah Scott",     "time": "02:30 PM", "doctor": "Dr. Mark Thompson",  "department": "Orthopedics",     "status": "Cancelled" }
+  ]
+}

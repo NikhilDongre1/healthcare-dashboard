@@ -1,0 +1,34 @@
+{
+  "monthly": [
+    { "month": "Jan", "patients": 320, "appointments": 410, "revenue": 128000 },
+    { "month": "Feb", "patients": 295, "appointments": 380, "revenue": 118000 },
+    { "month": "Mar", "patients": 340, "appointments": 430, "revenue": 136000 },
+    { "month": "Apr", "patients": 360, "appointments": 455, "revenue": 144000 },
+    { "month": "May", "patients": 390, "appointments": 490, "revenue": 156000 },
+    { "month": "Jun", "patients": 375, "appointments": 470, "revenue": 150000 },
+    { "month": "Jul", "patients": 410, "appointments": 515, "revenue": 164000 },
+    { "month": "Aug", "patients": 430, "appointments": 540, "revenue": 172000 },
+    { "month": "Sep", "patients": 405, "appointments": 510, "revenue": 162000 },
+    { "month": "Oct", "patients": 450, "appointments": 565, "revenue": 180000 },
+    { "month": "Nov", "patients": 420, "appointments": 525, "revenue": 168000 },
+    { "month": "Dec", "patients": 395, "appointments": 495, "revenue": 158000 }
+  ],
+  "departments": [
+    { "department": "Cardiology",       "visits": 284 },
+    { "department": "Neurology",        "visits": 196 },
+    { "department": "Orthopedics",      "visits": 178 },
+    { "department": "Oncology",         "visits": 143 },
+    { "department": "Endocrinology",    "visits": 134 },
+    { "department": "Gastroenterology", "visits": 118 },
+    { "department": "Pulmonology",      "visits": 97  },
+    { "department": "Dermatology",      "visits": 89  },
+    { "department": "Nephrology",       "visits": 76  },
+    { "department": "Geriatrics",       "visits": 61  }
+  ],
+  "appointmentStatus": [
+    { "name": "Completed",   "value": 68 },
+    { "name": "Scheduled",   "value": 18 },
+    { "name": "Cancelled",   "value": 8  },
+    { "name": "No Show",     "value": 6  }
+  ]
+}
