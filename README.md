@@ -42,56 +42,45 @@ A modern, fully responsive B2B Healthcare SaaS platform built for clinic adminis
 | Patients | Grid/list view with real-time search and multi-filter |
 | Patient Detail | Full patient profile with appointment history and reminders |
 
----
+## 📋 Features
 
-## ✨ Features
+### Login
+- Email and password login  
+- Keeps users signed in after refresh  
+- Shows clear error messages for invalid login  
 
-### 🔐 Authentication
-- Firebase Email/Password authentication
-- Persistent session across browser refreshes via Zustand + localStorage
-- Protected routes — unauthenticated users are redirected to login
-- Form validation with inline error messages
-- Human-readable Firebase error handling (invalid credentials, too many attempts, etc.)
+### Dashboard
+- Shows key numbers like total patients and today’s appointments  
+- List of recent patients  
+- Table of today’s appointments with status  
 
-### 🏠 Dashboard
-- Four real-time stat cards — Total Patients, Appointments Today, Bed Occupancy, Critical Cases
-- Trend indicators showing percentage change vs. previous period
-- Recent patients list sorted by last visit date — click any row to open the full profile
-- Today's appointments table with time, department, doctor, and status badge
+### Analytics
+- Charts for patient and appointment trends  
+- Revenue overview  
+- Department-wise visit breakdown  
+- Filter data by time range  
 
-### 📊 Analytics
-- **Date range filter** — Last 3 Months, Last 6 Months, This Year
-- **Patient Volume & Appointments** — dual-line chart showing monthly trends
-- **Monthly Revenue** — bar chart with highest revenue month highlighted
-- **Visits by Department** — interactive donut chart with hover-to-highlight legend
-- **Appointment Status Breakdown** — horizontal bar chart with percentage labels
-- Summary strip showing total patients, appointments, and revenue for the selected period
+### Patients
+- View patients in grid or list format  
+- Search by name, ID, doctor, or diagnosis  
+- Filter by status and department  
+- Works with multiple filters at once  
 
-### 👥 Patient Management
-- 20 mock patients across 10 medical departments
-- **Grid view** — visual cards with avatar, status badge, department, contact info
-- **List view** — compact sortable table with all key fields
-- **Real-time search** — filter by name, patient ID, doctor, or diagnosis
-- **Status filter** — All / Active / Inactive / Critical
-- **Department filter** — scrollable chip row for all 10 departments
-- Combined multi-filter support with active filter summary and clear all
-- Empty state UI when no results match
+### Patient Details
+- Full profile with basic and medical info  
+- Shows past and upcoming appointments  
+- Assigned doctor and department  
+- Button to set an appointment reminder  
 
-### 🏥 Patient Detail Page
-- Full patient profile — personal info, clinical info, diagnosis
-- Hero banner with avatar, status badge, and patient ID
-- Assigned doctor and department
-- Appointment history — last visit (completed) and next appointment (scheduled)
-- **Remind me** button — triggers a browser push notification with appointment details
+### Notifications
+- Notification after login  
+- Reminder notifications for appointments  
+- Panel to view and manage notifications  
+- Mark as read or clear all  
 
-### 🔔 Notifications
-- Service Worker registered at root scope (`/sw.js`)
-- Browser push notification support with graceful permission request flow
-- **Welcome notification** — fires automatically after every login
-- **Appointment reminder** — fires when clicking "Remind me" on any patient
-- In-app notification panel in the topbar with unread count badge
-- Mark individual notifications as read, mark all read, or clear all
-- Notifications persisted in Zustand store across page navigations
+### Responsive Design
+- Works on mobile, tablet, and desktop  
+- Layout adjusts based on screen size  
 
 ### 🎨 Custom Design Library
 All components are built from scratch with full variant support:
@@ -126,48 +115,6 @@ All components are built from scratch with full variant support:
 | Notifications | Service Worker + Notification API |
 | Package manager | npm |
 
----
-
-## 📁 Project Structure
-
-```
-src/
-├── assets/images/              # Static images
-├── components/ui/              # Design library — reusable primitives
-│   ├── Button/
-│   ├── Input/
-│   ├── Badge/
-│   ├── Card/
-│   ├── Avatar/
-│   ├── Toggle/
-│   ├── Modal/
-│   ├── Spinner/
-│   └── PageWrapper/
-├── constants/                  # Route strings, app constants, design tokens
-├── data/                       # Mock JSON data
-│   ├── patients.json           # 20 mock patients
-│   ├── dashboard.json          # Stat cards + today's appointments
-│   └── analytics.json          # Chart datasets
-├── features/                   # Feature-level composed components
-│   ├── auth/                   # Login carousel
-│   ├── dashboard/              # StatCard
-│   ├── analytics/              # 4 chart components
-│   ├── patients/               # PatientCard, PatientRow, PatientGrid, PatientList
-│   └── notifications/          # WelcomeNotification
-├── hooks/                      # useAuth, useNotification
-├── layouts/                    # AppLayout (sidebar + topbar), AuthLayout
-├── lib/                        # Firebase init
-├── pages/                      # Login, Dashboard, Analytics, Patients, PatientDetail, NotFound
-├── router/                     # AppRouter, ProtectedRoute
-├── store/                      # Zustand stores — authStore, patientStore, uiStore
-├── styles/                     # global.css (Tailwind + font + reset)
-├── types/                      # TypeScript interfaces
-└── utils/                      # Date formatters, color helpers
-public/
-└── sw.js                       # Service Worker
-```
-
----
 
 ## 🎨 Design Tokens
 
@@ -267,49 +214,6 @@ npm run preview
 3. Build command: `npm run build`
 4. Publish directory: `dist`
 5. Add environment variables in Site Settings → Environment Variables
-
----
-
-## 📱 Responsive Design
-
-| Breakpoint | Layout |
-|---|---|
-| Mobile (< 640px) | Single column, bottom navigation bar, stacked cards |
-| Tablet (640px – 1024px) | Two-column grids, hamburger drawer |
-| Desktop (> 1024px) | Full sidebar, multi-column grids, expanded charts |
-
----
-
-## 🔒 State Management
-
-Three Zustand stores handle all global state:
-
-**`authStore`** — user object, isAuthenticated, login(), logout(), initAuth() (Firebase listener), justLoggedIn flag for post-login notification trigger
-
-**`patientStore`** — patients list from JSON, selectedPatient, viewMode (grid/list), searchQuery, statusFilter, departmentFilter — all filter logic computed via `useMemo` in the page component
-
-**`uiStore`** — sidebarCollapsed, notifications array with read/unread state — both persisted to localStorage via Zustand persist middleware
-
----
-
-## 📋 Evaluation Criteria Coverage
-
-| Criteria | Implementation |
-|---|---|
-| Code quality and structure | Feature-based folder structure, TypeScript throughout, barrel exports, single responsibility components |
-| UI/UX and responsiveness | Custom design library, consistent tokens, responsive at 375px / 768px / 1280px |
-| State management | Zustand with persist middleware, selectors to avoid unnecessary re-renders |
-| Feature completeness | All 5 required modules implemented — auth, dashboard, analytics, patients, notifications |
-| Performance and best practices | Code splitting via Vite manualChunks, lazy-loadable pages, memoized filter logic |
-| Scalability | Tokens in one file, feature-based folders, mock data easily swappable with real API calls |
-
----
-
-## 👤 Author
-
-Built as part of a Frontend Developer assignment for a B2B Healthcare SaaS platform.
-
----
 
 ## 📄 License
 
